@@ -1,3 +1,52 @@
+sudo apt-get install librsvg2-bin
+
+rsvg-convert -f pdf -o 2.pdf 2.ai
+
+
+sudo apt-get install inkscape
+
+rsvg-convert -f pdf -o 3.rsvg.pdf 3.svg
+
+inkscape 3.svg --export-pdf=3.inkscape.pdf
+inkscape 2.ai --export-pdf=2.inkscape.pdf
+inkscape Grid_Sort.ai --export-pdf=Grid_Sort.inkscape.pdf
+
+
+gs -dNOPAUSE -dBATCH -sDEVICE=pngalpha -r300 -sOutputFile=Grid_Sort.gs.png Grid_Sort.ai
+gs -dNOPAUSE -dBATCH -sDEVICE=pngalpha -r100 -sOutputFile=Grid_Sort.gs.png Grid_Sort.ai
+
+# rsvg-convert --help
+
+Usage:
+  rsvg-convert [OPTION…] [FILE...] - SVG Converter
+
+Help Options:
+  -?, --help                                                  Show help options
+
+Application Options:
+  -d, --dpi-x=<float>                                         pixels per inch [optional; defaults to 90dpi]
+  -p, --dpi-y=<float>                                         pixels per inch [optional; defaults to 90dpi]
+  -x, --x-zoom=<float>                                        x zoom factor [optional; defaults to 1.0]
+  -y, --y-zoom=<float>                                        y zoom factor [optional; defaults to 1.0]
+  -z, --zoom=<float>                                          zoom factor [optional; defaults to 1.0]
+  -w, --width=<int>                                           width [optional; defaults to the SVG's width]
+  -h, --height=<int>                                          height [optional; defaults to the SVG's height]
+  -f, --format=[png, pdf, ps, eps, svg, xml, recording]       save format [optional; defaults to 'png']
+  -o, --output                                                output filename [optional; defaults to stdout]
+  -i, --export-id=<object id>                                 SVG id of object to export [optional; defaults to exporting all objects]
+  -a, --keep-aspect-ratio                                     whether to preserve the aspect ratio [optional; defaults to FALSE]
+  -b, --background-color=[black, white, #abccee, #aaa...]     set the background color [optional; defaults to None]
+  -u, --unlimited                                             Allow huge SVG files
+  --keep-image-data                                           Keep image data
+  --no-keep-image-data                                        Don't keep image data
+  -v, --version                                               show version information
+
+
+
+
+
+
+
 # console-rsvg-convert
 [rsvg-convert](https://github.com/brion/librsvg/blob/master/rsvg-convert.c) clone
 
